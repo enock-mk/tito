@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/*
+colors
+main-yellow: #FDB71A
+main-blue: #0F2447
+*/
+
 :root {
   --background: #f8fafc;
   --foreground: #0f172a;
@@ -13,7 +19,7 @@
 }
 
 .dark {
-  --background: #0b1220;
+  --background: #0f2447;
   --foreground: #e2e8f0;
 }
 
@@ -28,12 +34,12 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
-  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.15), transparent 32%), radial-gradient(circle at 95% 10%, rgba(59, 130, 246, 0.08), transparent 18%), var(--background);
+  background: radial-gradient(circle at top left, rgba(246, 243, 59, 0.15), transparent 32%), radial-gradient(circle at 95% 10%, rgba(246, 243, 59, 0.08), transparent 18%), var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
 ::selection {
-  background: rgba(59, 130, 246, 0.85);
+  background: rgba(246, 227, 59, 0.932);
   color: white;
 }

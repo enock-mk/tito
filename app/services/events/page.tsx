@@ -8,7 +8,7 @@ export default function EventsService() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-200 dark:bg-slate-950/95 dark:border-slate-800">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold text-blue-600 dark:text-blue-400">Tito</Link>
+          <Link href="/" className="text-2xl font-bold text-yellow-600 dark:text-yellow-400">Tito</Link>
           <Link href="/" className="text-gray-600 hover:text-gray-900 dark:text-slate-300 dark:hover:text-white">← Back to Home</Link>
         </div>
       </nav>

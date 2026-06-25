@@ -8,13 +8,13 @@ export default function BusesService() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-200 dark:bg-slate-950/95 dark:border-slate-800">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold text-blue-600">Tito</Link>
+          <Link href="/" className="text-2xl font-bold text-yellow-600">Tito</Link>
           <Link href="/" className="text-gray-600 hover:text-gray-900">← Back to Home</Link>
         </div>
       </nav>
 
       {/* Hero */}
-      <section className="pt-32 pb-16 px-6 bg-gradient-to-br from-blue-50 to-blue-100 dark:bg-slate-950 dark:from-slate-900 dark:to-slate-950">
+      <section className="pt-32 pb-16 px-6 bg-gradient-to-br from-yellow-50 to-yellow-100 dark:bg-slate-950 dark:from-slate-900 dark:to-slate-950">
         <div className="max-w-4xl mx-auto">
           <div className="text-6xl mb-6">🚌</div>
           <h1 className="text-5xl font-bold text-gray-900 mb-4">Bus Ticket Booking</h1>
@@ -66,28 +66,28 @@ export default function BusesService() {
             <h3 className="text-2xl font-bold text-gray-900 mb-6">How It Works</h3>
             <div className="space-y-6">
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">1</div>
+                <div className="flex-shrink-0 w-10 h-10 bg-yellow-600 text-white rounded-full flex items-center justify-center font-bold">1</div>
                 <div>
                   <h4 className="font-bold text-gray-900">List Your Routes</h4>
                   <p className="text-gray-600">Add all your bus routes with schedules and pricing</p>
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">2</div>
+                <div className="flex-shrink-0 w-10 h-10 bg-yellow-600 text-white rounded-full flex items-center justify-center font-bold">2</div>
                 <div>
                   <h4 className="font-bold text-gray-900">Go Live</h4>
                   <p className="text-gray-600">Your bookings are immediately available to customers</p>
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">3</div>
+                <div className="flex-shrink-0 w-10 h-10 bg-yellow-600 text-white rounded-full flex items-center justify-center font-bold">3</div>
                 <div>
                   <h4 className="font-bold text-gray-900">Get Bookings</h4>
                   <p className="text-gray-600">Receive reservations through the platform or API</p>
                 </div>
               </div>
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">4</div>
+                <div className="flex-shrink-0 w-10 h-10 bg-yellow-600 text-white rounded-full flex items-center justify-center font-bold">4</div>
                 <div>
                   <h4 className="font-bold text-gray-900">Manage & Earn</h4>
                   <p className="text-gray-600">Track bookings and receive automated payouts</p>
@@ -96,7 +96,7 @@ export default function BusesService() {
             </div>
           </div>
 
-          <div className="bg-blue-50 border-l-4 border-blue-600 p-8 rounded-lg mb-12">
+          <div className="bg-yellow-50 border-l-4 border-yellow-600 p-8 rounded-lg mb-12">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Perfect For</h3>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-600">
               <li>• National bus operators</li>
@@ -108,10 +108,10 @@ export default function BusesService() {
             </ul>
           </div>
 
-          <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-12 rounded-2xl">
+          <div className="bg-gradient-to-r from-yellow-600 to-yellow-700 text-white p-12 rounded-2xl">
             <h3 className="text-2xl font-bold mb-4">Ready to Go Digital?</h3>
             <p className="mb-6">Start selling bus tickets online in minutes with Tito</p>
-            <button className="px-8 py-3 bg-white text-blue-600 rounded-lg hover:bg-gray-100 font-bold">
+            <button className="px-8 py-3 bg-white text-yellow-600 rounded-lg hover:bg-gray-100 font-bold">
               Get Started Free
             </button>
           </div>

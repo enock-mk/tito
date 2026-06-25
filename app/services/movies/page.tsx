@@ -8,7 +8,7 @@ export default function MoviesService() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-200 dark:bg-slate-950/95 dark:border-slate-800">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold text-blue-600">Tito</Link>
+          <Link href="/" className="text-2xl font-bold text-yellow-600">Tito</Link>
           <Link href="/" className="text-gray-600 hover:text-gray-900">← Back to Home</Link>
         </div>
       </nav>
