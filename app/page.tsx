@@ -1,7 +1,7 @@
 'use client';
 
-import { Navbar} from '@/components/navbar';
-import {Footer} from '@/components/footer';
+import { Navbar} from '@/components/layout/navbar';
+import {Footer} from '@/components/layout/footer';
 import { Downloads } from '@/components/sections/download-view';
 import { Services } from '@/components/sections/services';
 import { Contact } from '@/components/sections/contact';

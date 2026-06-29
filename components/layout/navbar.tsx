@@ -36,14 +36,20 @@ export const Navbar = () => {
           </Link>
           <div className="flex items-center gap-3">
             <div className="hidden items-center gap-6 md:flex">
-              <a href="#services" className="text-sm font-medium text-slate-600 transition hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">
-                Services
+              <a href="#" className="text-sm font-medium text-slate-600 transition hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">
+                Platform
               </a>
-              <a href="#download" className="text-sm font-medium text-slate-600 transition hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">
-                Download
+              <a href="#" className="text-sm font-medium text-slate-600 transition hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">
+                Solutions
               </a>
               <a href="#contact" className="text-sm font-medium text-slate-600 transition hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">
-                Contact
+                industries
+              </a>
+              <a href="#contact" className="text-sm font-medium text-slate-600 transition hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">
+                Resources
+              </a>
+              <a href="#contact" className="text-sm font-medium text-slate-600 transition hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">
+                Company
               </a>
             </div>
             <button
@@ -56,7 +62,13 @@ export const Navbar = () => {
               {mounted ? (isDark ? '☀️ Light' : '🌙 Dark') : (isDark ? '☀️' : '🌙')}
             </button>
             <Link href="#contact" className="rounded-full border border-yellow-600 bg-yellow-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-yellow-700">
-              For Businesses
+              Become a partner
+            </Link>
+            <Link href="#contact" className="rounded-full border border-yellow-600 bg-yellow-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-yellow-700">
+              login
+            </Link>
+            <Link href="#contact" className="rounded-full border border-yellow-600 bg-yellow-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-yellow-700">
+              Book a demo
             </Link>
           </div>
         </div>

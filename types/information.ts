@@ -9,6 +9,7 @@ export const featureList = [
   { title: 'Scalable', description: 'Handles millions of transactions' }
 ];
 
+
 export const services = [
   {
     id: 'buses',
@@ -26,15 +27,15 @@ export const services = [
   },
   {
     id: 'movies',
-    name: 'Movie Tickets',
+    name: 'Movie Tickets Services',
     icon: '🎬',
     description: 'Offer cinema tickets to customers',
     accent: 'from-rose-500 to-rose-600'
   },
   {
-    id: 'flights',
-    name: 'Flight Bookings',
-    icon: '✈️',
+    id: 'funds',
+    name: 'Fundraising and Donation services',
+    icon: '💵',
     description: 'Integrate flight reservations',
     accent: 'from-sky-500 to-sky-600'
   },
@@ -46,9 +47,9 @@ export const services = [
     accent: 'from-pink-500 to-pink-600'
   },
   {
-    id: 'restaurants',
-    name: 'Restaurant Bookings',
-    icon: '🍽️',
+    id: 'hires',
+    name: 'Car Hiring Services',
+    icon: '🚘',
     description: 'Manage restaurant reservations',
     accent: 'from-orange-500 to-orange-600'
   }
