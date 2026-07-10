@@ -1,0 +1,157 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+// prisma/schema.prisma
+
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// User model
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String?
+  name      String?
+  role      UserRole @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations - use unique names for multiple relations to same model
+  bookings      Booking[] @relation("UserBookings")    // User's own bookings
+  staffBookings Booking[] @relation("StaffBookings")   // Bookings created by user as staff
+  customers     Customer[]
+  activities    Activity[]
+
+  @@map("users")
+}
+
+// Customer model
+model Customer {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  phone     String?
+  company   String?
+  industry  String?
+  address   String?
+  userId    String?  @map("user_id")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  user      User?    @relation(fields: [userId], references: [id])
+  bookings  Booking[]
+
+  @@map("customers")
+}
+
+// Booking model
+model Booking {
+  id            String        @id @default(cuid())
+  bookingNumber String        @unique @default(cuid())
+  customerId    String        @map("customer_id")
+  serviceType   ServiceType   @default(OTHER)
+  status        BookingStatus @default(PENDING)
+  date          DateTime
+  endDate       DateTime?
+  amount        Float
+  currency      String        @default("USD")
+  notes         String?
+  metadata      Json?
+  createdBy     String?       @map("created_by")
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  // Relations - matching fields from User model
+  customer      Customer      @relation(fields: [customerId], references: [id])
+  creator       User?         @relation("StaffBookings", fields: [createdBy], references: [id])
+  user          User?         @relation("UserBookings", fields: [userId], references: [id])
+  payments      Payment[]
+  activities    Activity[]
+
+  // Add this field to match User.bookings relation
+  userId        String?       @map("user_id")
+
+  @@map("bookings")
+}
+
+// Payment model
+model Payment {
+  id            String        @id @default(cuid())
+  bookingId     String        @map("booking_id")
+  amount        Float
+  currency      String        @default("USD")
+  status        PaymentStatus @default(PENDING)
+  method        PaymentMethod
+  transactionId String?       @map("transaction_id")
+  metadata      Json?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  booking       Booking       @relation(fields: [bookingId], references: [id])
+
+  @@map("payments")
+}
+
+// Activity model
+model Activity {
+  id          String   @id @default(cuid())
+  userId      String?  @map("user_id")
+  bookingId   String?  @map("booking_id")
+  action      String
+  description String?
+  metadata    Json?
+  createdAt   DateTime @default(now())
+
+  user        User?    @relation(fields: [userId], references: [id])
+  booking     Booking? @relation(fields: [bookingId], references: [id])
+
+  @@map("activities")
+}
+
+// Enums
+enum UserRole {
+  ADMIN
+  STAFF
+  USER
+}
+
+enum ServiceType {
+  TRANSPORT
+  HOTEL
+  EVENT
+  CAR_HIRE
+  FUNDRAISING
+  OTHER
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+enum PaymentMethod {
+  CARD
+  MOBILE_MONEY
+  BANK_TRANSFER
+  PAYPAL
+  OTHER
+}

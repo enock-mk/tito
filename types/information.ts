@@ -1,12 +1,12 @@
 export const featureList = [
-  { title: 'Easy Integration', description: 'Quick API setup for any business' },
-  { title: 'Multi-Service', description: 'Support for dozens of ticket types' },
+  { title: 'Centralized Booking Management', description: 'Manage all bookings from one unified dashboard' },
   { title: 'Secure Payments', description: 'PCI-DSS compliant payment processing' },
-  { title: 'Real-time Analytics', description: 'Dashboard with actionable insights' },
-  { title: 'White-label', description: 'Customize for your brand' },
-  { title: '24/7 Support', description: 'Dedicated customer support team' },
-  { title: 'Mobile App', description: 'Available on iOS and Android' },
-  { title: 'Scalable', description: 'Handles millions of transactions' }
+  { title: 'Real-time Reporting', description: 'Live analytics and actionable insights' },
+  { title: 'Cloud-based Dashboards', description: 'Access your business from anywhere' },
+  { title: 'Multi-user Access', description: 'Granular permission controls and roles' },
+  { title: 'Customer Management', description: 'Track and engage your customers' },
+  { title: 'Notifications', description: 'Automated alerts and reminders' },
+  { title: 'Analytics', description: 'Advanced reporting and insights' }
 ];
 
 
@@ -16,7 +16,7 @@ export const services = [
     name: 'Transport Management and Ticketing Services',
     icon: '🚌',
     description: 'Sell bus tickets with real-time booking',
-    accent: 'from-yellow-500 to-yellow-600'
+    accent: 'from-main-yellow-500 to-main-yellow-600'
   },
   {
     id: 'hotels',

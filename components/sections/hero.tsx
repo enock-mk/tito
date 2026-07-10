@@ -8,20 +8,23 @@ export const Hero = () => {
             <div className="grid gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
               <div className="max-w-2xl">
                 <span className="inline-flex rounded-full bg-slate-100 px-4 py-1 text-sm font-semibold uppercase tracking-[0.24em] text-slate-600 dark:bg-slate-900 dark:text-slate-300">
-                  Trusted by transport & hospitality teams
+                  Modern Booking & Management Platform
                 </span>
                 <h1 className="mt-8 text-5xl font-bold tracking-tight text-slate-950 dark:text-white sm:text-6xl">
-                  Build the ticketing experience your customers expect.
+                  Book. Ride. Stay.
                 </h1>
+                <p className="mt-4 text-xl font-semibold text-main-yellow-600">
+                  Modern Booking & Management Software for Travel, Hospitality, Events and Mobility.
+                </p>
                 <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300 sm:text-xl">
-                  Tito brings bookings, payments, analytics, and customer journeys together in one modern platform for buses, hotels, events, flights, and restaurants.
+                  One platform that helps businesses manage bookings, customers, payments and operations while giving customers a seamless booking experience.
                 </p>
                 <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                  <Link href="#contact" className="inline-flex items-center justify-center rounded-full bg-yellow-600 px-8 py-3 text-base font-semibold text-white shadow-lg shadow-yellow-600/20 transition hover:bg-yellow-700">
-                    Start free trial
+                  <Link href="#contact" className="inline-flex items-center justify-center rounded-full bg-main-yellow-600 px-8 py-3 text-base font-semibold text-white shadow-lg shadow-main-yellow-600/20 transition hover:bg-main-yellow-700">
+                    Become a Partner
                   </Link>
                   <Link href="#contact" className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-8 py-3 text-base font-semibold text-slate-900 transition hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800">
-                    Schedule demo
+                    Book a Demo
                   </Link>
                 </div>
                 <div className="mt-12 grid gap-4 sm:grid-cols-3">
@@ -48,7 +51,7 @@ export const Hero = () => {
                         <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">Platform overview</p>
                         <p className="mt-3 text-2xl font-semibold text-slate-900 dark:text-white">Booking dashboard</p>
                       </div>
-                      <div className="rounded-3xl bg-yellow-600 px-3 py-2 text-sm font-semibold text-white">Live</div>
+                      <div className="rounded-3xl bg-main-yellow-600 px-3 py-2 text-sm font-semibold text-white">Live</div>
                     </div>
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div className="rounded-3xl bg-slate-950/95 p-5 text-white">
