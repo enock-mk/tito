@@ -49,3 +49,4 @@ dist/
 .env
 
 /generated/prisma
+/lib/prisma.ts
