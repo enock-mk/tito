@@ -39,7 +39,6 @@ yarn-error.log*
 #sample
 /sample
 /future_updates
-/prisma
 
 # typescript
 *.tsbuildinfo
@@ -48,5 +47,5 @@ node_modules/
 dist/
 .env
 
-/generated/prisma
-/lib/prisma.ts
+#/generated/prisma
+#/lib/prisma.ts
