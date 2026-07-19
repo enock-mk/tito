@@ -39,6 +39,7 @@ yarn-error.log*
 #sample
 /sample
 /future_updates
+/prisma
 
 # typescript
 *.tsbuildinfo
