@@ -17,10 +17,12 @@ import {
   Sparkles,
   Shield,
   Zap,
-  Users
+  Users,
+  Store
 } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export function Downloads() {
   const features = [
@@ -163,13 +165,13 @@ export function Downloads() {
                 <div className="mt-6 space-y-3">
                   <Link href="#" className="block">
                     <Button className="w-full bg-neutral-900 hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">
-                      <Apple className="mr-2 h-5 w-5" />
+                      <Image className='mr-2 h-4 w-4' src={'/icons/app-store.svg'} alt='apple' width={24} height={24}/>
                       App Store
                     </Button>
                   </Link>
                   <Link href="#" className="block">
                     <Button className="w-full bg-green-600 hover:bg-green-700">
-                      <PlayCircle className="mr-2 h-5 w-5" />
+                      <Image className='mr-2 h-4 w-4' src={'/icons/google-play.svg'} alt='apple' width={24} height={24}/>
                       Google Play
                     </Button>
                   </Link>

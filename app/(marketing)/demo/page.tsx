@@ -126,8 +126,6 @@ export default function DemoPage() {
           </div>
         </div>
       </section>
-
-      <CTASection variant="simple" />
     </>
   );
 }

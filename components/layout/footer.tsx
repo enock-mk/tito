@@ -56,7 +56,7 @@ export const Footer = () => {
               <li><Link href="/solutions/hospitality">Hospitality</Link></li>
               <li><Link href="/solutions/car-hire">Car Hire</Link></li>
               <li><Link href="/solutions/fundraising">Fundraising</Link></li>
-              <li><Link href="/solutions/custom">Custom Solutions</Link></li>
+              <li><Link href="/contact">Custom Solutions</Link></li>
             </ul>
           </div>
 
@@ -76,8 +76,9 @@ export const Footer = () => {
             <p className="font-semibold text-white">Industries</p>
             <ul className="mt-5 space-y-3 text-sm text-slate-400">
               <li><Link href="/industries/hotels">Hotels</Link></li>
-              <li><Link href="/industries/transport">Transport</Link></li>
-              <li><Link href="/industries/events">Events</Link></li>
+              <li><Link href="/industries/bus-operators">Buses</Link></li>
+              <li><Link href="/industries/car-hire">Car Hire</Link></li>
+              <li><Link href="/industries/event-organizers">Events</Link></li>
               <li><Link href="/industries/churches">Churches</Link></li>
               <li><Link href="/industries/ngos">NGOs</Link></li>
               <li><Link href="/industries/government">Government</Link></li>
@@ -92,7 +93,7 @@ export const Footer = () => {
               <li><Link href="/documentation">Documentation</Link></li>
               <li><Link href="/faq">FAQs</Link></li>
               <li><Link href="/case-studies">Case Studies</Link></li>
-              <li><Link href="/downloads">Downloads</Link></li>
+              <li><Link href="/#download">Downloads</Link></li>
             </ul>
           </div>
 
@@ -111,13 +112,13 @@ export const Footer = () => {
           <div>
             <p className="font-semibold text-white">Contact</p>
             <address className="mt-5 not-italic text-sm leading-7 text-slate-400">
-              <span className="font-semibold text-slate-200">Parkview, Chalala</span>
+              <span className="font-semibold text-slate-200">Parkview, Chalala 9th Avenue</span>
               <br />
               Lusaka, Zambia
               <br />
               <a href="mailto:info@titobookings.com" className="text-slate-300 hover:text-white">info@titobookings.com</a>
               <br />
-              <a href="tel:+260971756393" className="text-slate-300 hover:text-white">+260 971 756 393</a>
+              <a href="tel:+260963296682" className="text-slate-300 hover:text-white">+260 963 296 682</a>
               <br />
               Mon - Fri
               <br />

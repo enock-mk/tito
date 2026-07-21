@@ -43,27 +43,27 @@ export function Contact() {
     {
       icon: Mail,
       title: 'Email',
-      value: 'hello@tito.com',
-      href: 'mailto:hello@tito.com',
+      value: 'info@titobookings.com',
+      href: 'mailto:info@titobookings.com',
       color: 'from-blue-500 to-blue-600',
     },
     {
       icon: Clock,
       title: 'Response Time',
-      value: 'Typically within 1 business day',
+      value: 'Typically within a Minute',
       color: 'from-green-500 to-green-600',
     },
     {
       icon: Phone,
       title: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
+      value: '+260 963296682',
+      href: 'tel:+260963296682',
       color: 'from-purple-500 to-purple-600',
     },
     {
       icon: MapPin,
       title: 'Office',
-      value: 'New York, NY',
+      value: 'Parkview, Chalala 9th Avenue, Lusaka, Zambia',
       color: 'from-orange-500 to-orange-600',
     },
   ];
