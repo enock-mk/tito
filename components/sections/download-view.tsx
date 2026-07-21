@@ -189,7 +189,8 @@ export function Downloads() {
               </div>
             </SlideIn>
 
-            {/* Dashboard Link */}
+            {/*
+            {/* Dashboard Link }
             <SlideIn delay={0.3}>
               <Link
                 href="/dashboard"
@@ -207,6 +208,7 @@ export function Downloads() {
                 <ArrowRight className="h-5 w-5 text-neutral-400 transition-transform group-hover:translate-x-1" />
               </Link>
             </SlideIn>
+            */}
           </div>
         </div>
       </div>
