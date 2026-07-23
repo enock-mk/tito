@@ -10,7 +10,11 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { FormField } from '@/components/shared/FormField';
 import { Loader2, CheckCircle } from 'lucide-react';
-import  {cn}  from '@/lib/utils';
+import { cn } from '@/lib/utils';
+
+// Replace with your Formspree endpoint
+// You can get this from https://formspree.io/ after creating a form
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xojgkazv';
 
 interface ContactFormProps {
   className?: string;
@@ -20,6 +24,7 @@ interface ContactFormProps {
 export function ContactForm({ className, onSuccess }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const {
     register,
@@ -39,19 +44,33 @@ export function ContactForm({ className, onSuccess }: ContactFormProps) {
 
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
+    setError(null);
+
     try {
-      console.log('Contact form data:', data);
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      
-      setIsSubmitted(true);
-      reset();
-      onSuccess?.();
-      
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
-    } catch (error) {
-      console.error('Error submitting contact form:', error);
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        reset();
+        onSuccess?.();
+        
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 5000);
+      } else {
+        const errorData = await response.json();
+        setError(errorData.error || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      setError('Network error. Please check your connection and try again.');
+      console.error('Form submission error:', err);
     } finally {
       setIsSubmitting(false);
     }
@@ -150,6 +169,14 @@ export function ContactForm({ className, onSuccess }: ContactFormProps) {
           />
         </FormField>
       </div>
+
+      {/* Error Message */}
+      {error && (
+        <div className="rounded-xl bg-red-500/10 p-4 text-center text-red-400">
+          <p className="font-medium">Error sending message</p>
+          <p className="text-sm text-red-400/80">{error}</p>
+        </div>
+      )}
 
       <Button
         type="submit"

@@ -1,4 +1,4 @@
-// components/sections/Contact.tsx (Simple version)
+// components/sections/Contact.tsx
 'use client';
 
 import { useState } from 'react';
@@ -22,21 +22,53 @@ import {
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
+// Replace with your Formspree endpoint
+// You can get this from https://formspree.io/ after creating a form
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xojgkazv';
+
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    setTimeout(() => setIsSubmitted(false), 5000);
+    setError(null);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      company: formData.get('company'),
+      message: formData.get('message'),
+    };
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        // Reset form
+        (e.target as HTMLFormElement).reset();
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        const errorData = await response.json();
+        setError(errorData.error || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      setError('Network error. Please check your connection and try again.');
+      console.error('Form submission error:', err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -138,7 +170,7 @@ export function Contact() {
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-white">Send us a message</h3>
                 <p className="text-sm text-neutral-400">
-                  We`&apos;`ll get back to you within 24 hours.
+                  We&apos;ll get back to you within 24 hours.
                 </p>
               </div>
 
@@ -202,6 +234,18 @@ export function Contact() {
                   />
                 </div>
 
+                {/* Error Message */}
+                {error && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="rounded-xl bg-red-500/10 p-4 text-center text-red-400"
+                  >
+                    <p className="font-medium">Error sending message</p>
+                    <p className="text-sm text-red-400/80">{error}</p>
+                  </motion.div>
+                )}
+
                 <Button
                   type="submit"
                   className="w-full bg-primary hover:bg-primary/90 text-white"
@@ -228,7 +272,7 @@ export function Contact() {
                   >
                     <CheckCircle2 className="mx-auto h-8 w-8 mb-2" />
                     <p className="font-medium">Message sent successfully!</p>
-                    <p className="text-sm text-green-400/80">We`&apos;`ll contact you shortly.</p>
+                    <p className="text-sm text-green-400/80">We&apos;ll contact you shortly.</p>
                   </motion.div>
                 )}
               </form>

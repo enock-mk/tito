@@ -84,12 +84,12 @@ export const showcaseIndustries: ShowcaseIndustry[] = [
     icon: '🎪',
     dashboards: [
       {
-        id: 'events-dashboard',
-        title: 'Events Dashboard',
+        id: 'events-app',
+        title: 'Events App',
         description: 'Manage events, ticketing, and attendee tracking',
-        image: '/dashboards/events-dashboard.jpeg',
+        image: '/dashboards/events-app.jpeg',
         industry: 'events',
-        device: 'laptop',
+        device: 'phone',
       },
       {
         id: 'events-ticketing',

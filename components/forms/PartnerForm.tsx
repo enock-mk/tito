@@ -13,6 +13,10 @@ import { FormField } from '@/components/shared/FormField';
 import { Loader2, CheckCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+// Replace with your Formspree endpoint
+// You can get this from https://formspree.io/ after creating a form
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xqeryzoo';
+
 interface PartnerFormProps {
   className?: string;
   onSuccess?: () => void;
@@ -21,6 +25,7 @@ interface PartnerFormProps {
 export function PartnerForm({ className, onSuccess }: PartnerFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const {
     register,
@@ -45,21 +50,34 @@ export function PartnerForm({ className, onSuccess }: PartnerFormProps) {
 
   const onSubmit = async (data: PartnerFormValues) => {
     setIsSubmitting(true);
+    setError(null);
+
     try {
-      // API call would go here
-      console.log('Partner form data:', data);
-      await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulate API call
-      
-      setIsSubmitted(true);
-      reset();
-      onSuccess?.();
-      
-      // Reset success state after 5 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
-    } catch (error) {
-      console.error('Error submitting partner form:', error);
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        reset();
+        onSuccess?.();
+        
+        // Reset success state after 5 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 5000);
+      } else {
+        const errorData = await response.json();
+        setError(errorData.error || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      setError('Network error. Please check your connection and try again.');
+      console.error('Form submission error:', err);
     } finally {
       setIsSubmitting(false);
     }
@@ -256,6 +274,14 @@ export function PartnerForm({ className, onSuccess }: PartnerFormProps) {
         </FormField>
       </div>
 
+      {/* Error Message */}
+      {error && (
+        <div className="rounded-xl bg-red-500/10 p-4 text-center text-red-400">
+          <p className="font-medium">Error submitting application</p>
+          <p className="text-sm text-red-400/80">{error}</p>
+        </div>
+      )}
+
       <Button
         type="submit"
         size="lg"
@@ -273,7 +299,7 @@ export function PartnerForm({ className, onSuccess }: PartnerFormProps) {
       </Button>
 
       <p className="text-center text-sm text-neutral-500 dark:text-neutral-400">
-        We`&apos;`ll review your application and get back to you within 24-48 hours.
+        We&apos;ll review your application and get back to you within 24-48 hours.
       </p>
     </form>
   );

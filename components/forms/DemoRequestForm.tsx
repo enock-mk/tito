@@ -12,6 +12,10 @@ import { FormField } from '@/components/shared/FormField';
 import { Loader2, CheckCircle, Calendar, Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+// Replace with your Formspree endpoint
+// You can get this from https://formspree.io/ after creating a form
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xjgnabdj';
+
 interface DemoRequestFormProps {
   className?: string;
   onSuccess?: () => void;
@@ -20,6 +24,7 @@ interface DemoRequestFormProps {
 export function DemoRequestForm({ className, onSuccess }: DemoRequestFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const {
     register,
@@ -44,19 +49,33 @@ export function DemoRequestForm({ className, onSuccess }: DemoRequestFormProps) 
 
   const onSubmit = async (data: DemoRequestFormValues) => {
     setIsSubmitting(true);
+    setError(null);
+
     try {
-      console.log('Demo request form data:', data);
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      
-      setIsSubmitted(true);
-      reset();
-      onSuccess?.();
-      
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
-    } catch (error) {
-      console.error('Error submitting demo request:', error);
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        reset();
+        onSuccess?.();
+        
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 5000);
+      } else {
+        const errorData = await response.json();
+        setError(errorData.error || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      setError('Network error. Please check your connection and try again.');
+      console.error('Form submission error:', err);
     } finally {
       setIsSubmitting(false);
     }
@@ -258,6 +277,14 @@ export function DemoRequestForm({ className, onSuccess }: DemoRequestFormProps) 
         </FormField>
       </div>
 
+      {/* Error Message */}
+      {error && (
+        <div className="rounded-xl bg-red-500/10 p-4 text-center text-red-400">
+          <p className="font-medium">Error submitting demo request</p>
+          <p className="text-sm text-red-400/80">{error}</p>
+        </div>
+      )}
+
       <Button
         type="submit"
         size="lg"
@@ -275,7 +302,7 @@ export function DemoRequestForm({ className, onSuccess }: DemoRequestFormProps) 
       </Button>
 
       <p className="text-center text-sm text-neutral-500 dark:text-neutral-400">
-        We`&apos;`ll contact you within 24 hours to schedule your personalized demo.
+        We&apos;ll contact you within 24 hours to schedule your personalized demo.
       </p>
     </form>
   );
