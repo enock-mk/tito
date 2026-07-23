@@ -18,7 +18,6 @@ export function PlatformOverview() {
         <SlideIn>
           <div className="text-center">
             <span className="inline-flex items-center gap-2 rounded-full border bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
-              <Sparkles className="h-4 w-4" />
               Platform Features
             </span>
             <h2 className="mt-6 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">

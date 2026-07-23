@@ -68,8 +68,7 @@ export function Downloads() {
           {/* Left Column - Content */}
           <div className="space-y-6">
             <SlideIn>
-              <Badge className="inline-flex items-center gap-2 bg-primary/10 text-primary hover:bg-primary/20">
-                <Sparkles className="h-3.5 w-3.5" />
+              <Badge className="inline-flex items-center px-4 py-1 text-sm font-medium bg-primary/10 text-primary hover:bg-primary/20">
                 Download
               </Badge>
               <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">

@@ -4,6 +4,7 @@
 import { AnimatedDashboard } from '@/components/animations/AnimatedDashboard';
 import Image from "next/image";
 import { motion } from 'framer-motion';
+import { Shield, Gauge} from 'lucide-react';
 import { useState } from 'react';
 
 interface HeroImageProps {
@@ -50,7 +51,7 @@ export function HeroImage({ className, showDashboard = false }: HeroImageProps) 
             }}
           >
             <div className="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 p-3 shadow-lg">
-              <span className="text-2xl">✨</span>
+              <Gauge className='2xl'/>
             </div>
           </motion.div>
 
@@ -68,7 +69,7 @@ export function HeroImage({ className, showDashboard = false }: HeroImageProps) 
             }}
           >
             <div className="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 p-3 shadow-lg">
-              <span className="text-2xl">🚀</span>
+              <Shield className='2xl'/>
             </div>
           </motion.div>
 
@@ -102,7 +103,7 @@ export function HeroImage({ className, showDashboard = false }: HeroImageProps) 
               width={800}
               className="relative z-0 w-full h-auto"
               priority
-              quality={95}
+              quality={75}
             />
 
             {/* Soft border glow on hover */}

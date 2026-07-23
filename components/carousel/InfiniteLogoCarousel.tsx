@@ -4,10 +4,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation, useMotionValue, useSpring } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { Partner } from '@/data/partners';
+import { Partnerr } from '@/data/partners';
 
 interface InfiniteLogoCarouselProps {
-  partners: Partner[];
+  partners: Partnerr[];
   speed?: number; // pixels per second
   direction?: 'left' | 'right';
   className?: string;
@@ -36,6 +36,7 @@ export function InfiniteLogoCarousel({
     const containerWidth = containerRef.current.scrollWidth / 3;
     const totalWidth = containerRef.current.scrollWidth;
 
+    
     const animate = () => {
       const currentX = x.get();
       const step = direction === 'left' ? -1 : 1;
@@ -77,7 +78,7 @@ export function InfiniteLogoCarousel({
                 partner.color || 'from-neutral-200 to-neutral-300 dark:from-neutral-700 dark:to-neutral-800'
               )}
             >
-              {partner.icon || '🏢'}
+              {<partner.icon /> }
             </div>
             <span className="text-sm font-medium whitespace-nowrap">
               {partner.name}

@@ -22,7 +22,7 @@ export default function HomePage() {
       <WhyChoose />
       <ProductShowcase />
       <Workflow />
-      <Testimonials />
+      {/*<Testimonials />*/}
       <Downloads />
       <Contact />
       <CTASection variant="default" />

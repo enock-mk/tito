@@ -536,25 +536,3 @@ Built with ❤️ by the TiTO Team
 
 **Tito - One Platform. All Bookings. Infinite Possibilities.**
 
-🚀 Creating a Prisma Postgres database
-│
-◇  Database created successfully!
-│
-│
-●  Database Connection
-│
-│
-│    Connection String:
-│
-│    postgres://db54a3f125ce02137fb2f84d8585cf76e49d98f99812a6655b6cc2e910d734e0:sk_vrLyg5WhsWwybv0loGjFV@db.prisma.io:5432/postgres?sslmode=require
-│
-│
-◆  Claim Your Database
-│
-│    Keep your database for free:
-│
-│    https://create-db.prisma.io/claim?projectID=proj_cmras411q0pnuxef9lhziyw1r&utm_source=create-db&utm_medium=cli
-│
-│    Database will be deleted on 7/8/2026, 5:03:33 PM if not claimed.
-│
-└  Done!
