@@ -1,7 +1,7 @@
 // components/sections/TrustedBy.tsx
 'use client';
 
-import { partnersWithIcons } from '@/data/partners';
+import { partners } from '@/data/partners';
 import { InfiniteLogoCarousel } from '@/components/carousel/InfiniteLogoCarousel';
 import { SlideIn } from '@/components/animations/SlideIn';
 
@@ -20,7 +20,7 @@ export function TrustedBy() {
         <SlideIn delay={0.2}>
           <div className="mt-6">
             <InfiniteLogoCarousel
-              partners={partnersWithIcons}
+              partners={partners}
               speed={35}
               direction="left"
               pauseOnHover

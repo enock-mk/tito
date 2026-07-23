@@ -1,5 +1,4 @@
 // data/partners.ts
-
 import {
   Hotel,
   Bus,
@@ -12,64 +11,16 @@ import {
   BriefcaseBusiness,
   LucideIcon,
 } from 'lucide-react';
+
 export interface Partner {
   id: string;
   name: string;
-  icon: string; // This can be a path to an SVG or a component
-  industry: string;
-  color?: string;
-}
-
-export interface Partnerr{
-  id: string;
-  name: string;
-  icon: LucideIcon; // This can be a path to an SVG or a component
+  icon: LucideIcon;
   industry: string;
   color?: string;
 }
 
 export const partners: Partner[] = [
-  {
-    id: 'hotels',
-    name: 'Hotels',
-    icon: '/logos/hotels.svg',
-    industry: 'Hospitality',
-  },
-  {
-    id: 'transport',
-    name: 'Transport Operators',
-    icon: '/logos/transport.svg',
-    industry: 'Transportation',
-  },
-  {
-    id: 'events',
-    name: 'Event Organizers',
-    icon: '/logos/events.svg',
-    industry: 'Events',
-  },
-  {
-    id: 'churches',
-    name: 'Churches',
-    icon: '/logos/churches.svg',
-    industry: 'Religious',
-  },
-  {
-    id: 'ngos',
-    name: 'NGOs',
-    icon: '/logos/ngos.svg',
-    industry: 'Non-Profit',
-  },
-  {
-    id: 'businesses',
-    name: 'Businesses',
-    icon: '/logos/businesses.svg',
-    industry: 'Corporate',
-  },
-];
-
-// For demo purposes, we'll use text-based logos with icons
-// In production, replace with actual SVG/PNG files
-export const partnersWithIcons: Partnerr[] = [
   {
     id: 'hotels',
     name: 'Hotels',
@@ -92,6 +43,13 @@ export const partnersWithIcons: Partnerr[] = [
     color: 'from-purple-500 to-purple-600',
   },
   {
+    id: 'car-hire',
+    name: 'Car Hire',
+    icon: Car,
+    industry: 'Transportation',
+    color: 'from-orange-500 to-orange-600',
+  },
+  {
     id: 'churches',
     name: 'Churches',
     icon: Church,
@@ -106,6 +64,13 @@ export const partnersWithIcons: Partnerr[] = [
     color: 'from-rose-500 to-rose-600',
   },
   {
+    id: 'universities',
+    name: 'Universities',
+    icon: GraduationCap,
+    industry: 'Education',
+    color: 'from-cyan-500 to-cyan-600',
+  },
+  {
     id: 'businesses',
     name: 'Businesses',
     icon: BriefcaseBusiness,
@@ -113,3 +78,24 @@ export const partnersWithIcons: Partnerr[] = [
     color: 'from-indigo-500 to-indigo-600',
   },
 ];
+
+// Optional: Helper function to get partner by ID
+export const getPartnerById = (id: string): Partner | undefined => {
+  return partners.find((partner) => partner.id === id);
+};
+
+// Optional: Helper function to get partners by industry
+export const getPartnersByIndustry = (industry: string): Partner[] => {
+  return partners.filter((partner) => partner.industry === industry);
+};
+
+// Optional: Group partners by industry
+export const getPartnersGroupedByIndustry = (): Record<string, Partner[]> => {
+  return partners.reduce((acc, partner) => {
+    if (!acc[partner.industry]) {
+      acc[partner.industry] = [];
+    }
+    acc[partner.industry].push(partner);
+    return acc;
+  }, {} as Record<string, Partner[]>);
+};

@@ -2,12 +2,12 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { motion, useAnimation, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { Partnerr } from '@/data/partners';
+import { Partner } from '@/data/partners';
 
 interface InfiniteLogoCarouselProps {
-  partners: Partnerr[];
+  partners: Partner[];
   speed?: number; // pixels per second
   direction?: 'left' | 'right';
   className?: string;
@@ -23,36 +23,42 @@ export function InfiniteLogoCarousel({
 }: InfiniteLogoCarouselProps) {
   const [isPaused, setIsPaused] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const controls = useAnimation();
   const x = useMotionValue(0);
   const springX = useSpring(x, { stiffness: 100, damping: 30 });
+  const animationRef = useRef<number | null>(null);
 
-  // Duplicate partners for seamless scrolling
+  // Create new array (immutable) for seamless scrolling
   const duplicatedPartners = [...partners, ...partners, ...partners];
 
-  useEffect(() => {
+  // Define animate as a regular function (not useCallback) to avoid circular reference
+  const animate = () => {
     if (!containerRef.current || isPaused) return;
 
     const containerWidth = containerRef.current.scrollWidth / 3;
-    const totalWidth = containerRef.current.scrollWidth;
+    const currentX = x.get();
+    const step = direction === 'left' ? -1 : 1;
 
-    
-    const animate = () => {
-      const currentX = x.get();
-      const step = direction === 'left' ? -1 : 1;
+    if (Math.abs(currentX) >= containerWidth) {
+      x.set(0);
+    } else {
+      x.set(currentX + step * (speed / 60));
+    }
 
-      if (Math.abs(currentX) >= containerWidth) {
-        x.set(0);
-      } else {
-        x.set(currentX + step * (speed / 60));
+    animationRef.current = requestAnimationFrame(animate);
+  };
+
+  // Start animation when component mounts or dependencies change
+  useEffect(() => {
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationRef.current !== null) {
+        cancelAnimationFrame(animationRef.current);
+        animationRef.current = null;
       }
-
-      requestAnimationFrame(animate);
     };
-
-    const animationId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationId);
-  }, [x, speed, direction, isPaused]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isPaused, speed, direction]);
 
   return (
     <div
@@ -65,26 +71,29 @@ export function InfiniteLogoCarousel({
         style={{ x: springX }}
         className="flex gap-12 py-4"
       >
-        {duplicatedPartners.map((partner, index) => (
-          <motion.div
-            key={`${partner.id}-${index}`}
-            className="flex shrink-0 items-center gap-3"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-          >
-            <div
-              className={cn(
-                'flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br text-2xl',
-                partner.color || 'from-neutral-200 to-neutral-300 dark:from-neutral-700 dark:to-neutral-800'
-              )}
+        {duplicatedPartners.map((partner, index) => {
+          const Icon = partner.icon;
+          return (
+            <motion.div
+              key={`${partner.id}-${index}`}
+              className="flex shrink-0 items-center gap-3"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 25 }}
             >
-              {<partner.icon /> }
-            </div>
-            <span className="text-sm font-medium whitespace-nowrap">
-              {partner.name}
-            </span>
-          </motion.div>
-        ))}
+              <div
+                className={cn(
+                  'flex h-12 w-12 items-center justify-center rounded-lg bg-linear-to-br text-white shadow-lg transition-all duration-300 hover:shadow-xl',
+                  partner.color || 'from-neutral-200 to-neutral-300 dark:from-neutral-700 dark:to-neutral-800'
+                )}
+              >
+                <Icon className="h-6 w-6" />
+              </div>
+              <span className="text-sm font-medium whitespace-nowrap">
+                {partner.name}
+              </span>
+            </motion.div>
+          );
+        })}
       </motion.div>
     </div>
   );
