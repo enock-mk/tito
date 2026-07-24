@@ -34,7 +34,7 @@ export function PlatformOverview() {
         </SlideIn>
 
         {/* Stats */}
-        <SlideIn delay={0.15}>
+        {/*<SlideIn delay={0.15}>
           <div className="mt-12 grid grid-cols-2 gap-4 rounded-2xl border bg-white/80 p-6 backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-900/80 md:grid-cols-4 md:p-8">
             {platformStats.map((stat, index) => (
               <div
@@ -47,14 +47,14 @@ export function PlatformOverview() {
                 <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
                   {stat.label}
                 </p>
-                {/* Decorative line */}
+                {/* Decorative line 
                 {index < platformStats.length - 1 && (
                   <div className="absolute right-0 top-1/2 hidden h-8 w-px -translate-y-1/2 bg-neutral-200 dark:bg-neutral-700 md:block" />
                 )}
               </div>
             ))}
           </div>
-        </SlideIn>
+        </SlideIn> */}
 
         {/* Feature Grid */}
         <StaggerContainer className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">

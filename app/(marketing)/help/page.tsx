@@ -66,14 +66,14 @@ export default function HelpCenterPage() {
           <Mail className="h-6 w-6 text-primary" />
           <div>
             <p className="font-medium">Email Support</p>
-            <p className="text-sm text-neutral-500">support@tito.com</p>
+            <p className="text-sm text-neutral-500">info@titobookings.com</p>
           </div>
         </div>
         <div className="flex items-center gap-4 rounded-xl border bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
           <Phone className="h-6 w-6 text-primary" />
           <div>
             <p className="font-medium">Phone Support</p>
-            <p className="text-sm text-neutral-500">+1 (555) 123-4567</p>
+            <p className="text-sm text-neutral-500">+260 963 296 682</p>
           </div>
         </div>
       </div>

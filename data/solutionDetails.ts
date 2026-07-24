@@ -252,4 +252,52 @@ export const solutionPages: DetailPageData[] = [
       },
     ],
   },
+  {
+    id: 'custom',
+    title: 'Custom Solutions',
+    description: 'Tailored solutions for unique business needs and workflows.',
+    heroIntro: 'Custom Solutions',
+    heroText: 'Get a platform that adapts to your specific requirements, whether you need unique features or a completely customized experience.',
+    problemQuestions: [
+      'Off-the-shelf solutions don\'t fit your needs?',
+      'Your workflow requires custom features?',
+      'Integration with existing systems is complex?',
+      'You need a solution that scales with your business?',
+    ],
+    solutionText:
+      'TiTO\'s flexible platform can be customized to fit your unique business requirements, with tailored workflows, integrations, and support.',
+    features: [
+      'Custom Workflows',
+      'Tailored Integrations',
+      'White-label Options',
+      'Dedicated Support',
+      'Flexible Pricing',
+      'API Access',
+      'Custom Reporting',
+      'Data Migration',
+      'Training & Onboarding',
+    ],
+    workflow: [
+      'Consultation',
+      'Requirements Gathering',
+      'Solution Design',
+      'Development',
+      'Testing',
+      'Deployment',
+    ],
+    faqs: [
+      {
+        question: 'How long does it take to build a custom solution?',
+        answer: 'Timeline varies based on complexity. Typically 4-12 weeks from requirements to deployment.',
+      },
+      {
+        question: 'Can you integrate with our existing systems?',
+        answer: 'Yes. TiTO offers API access and custom integration services for your existing tools and platforms.',
+      },
+      {
+        question: 'What support is included with custom solutions?',
+        answer: 'Custom solutions include dedicated support, training, and ongoing maintenance.',
+      },
+    ],
+  }
 ];

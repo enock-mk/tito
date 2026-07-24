@@ -105,9 +105,9 @@ export function IndustryCard({
                   )}>
                     {industry.title}
                   </h3>
-                  <p className="text-sm text-white/80">
+                  {/*<p className="text-sm text-white/80">
                     {industry.stats}
-                  </p>
+                  </p> */}
                 </div>
                 <div className="rounded-full bg-white/20 p-2 text-white transition-transform group-hover:translate-x-1">
                   <ArrowRight className="h-4 w-4" />

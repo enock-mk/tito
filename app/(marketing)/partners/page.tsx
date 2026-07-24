@@ -47,7 +47,7 @@ export default function PartnersPage() {
       />
 
       {/* Stats */}
-      <section className="border-b py-12 dark:border-neutral-800">
+      {/*<section className="border-b py-12 dark:border-neutral-800">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             {partnerStats.map((stat) => (
@@ -67,7 +67,7 @@ export default function PartnersPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Partner Benefits */}
       <section className="py-12 md:py-16">
@@ -155,8 +155,6 @@ export default function PartnersPage() {
           </div>
         </div>
       </section>
-
-      <CTASection variant="simple" />
     </>
   );
 }

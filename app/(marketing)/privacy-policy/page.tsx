@@ -299,15 +299,15 @@ export default function PrivacyPolicyPage() {
                       </p>
                       <div className="rounded-lg border bg-white p-4 dark:border-neutral-800 dark:bg-neutral-900">
                         <p className="font-semibold">TiTO Bookings</p>
-                        <p>Parkview, Chalala, Lusaka, Zambia</p>
+                        <p>Parkview, Chalala 9th Avenue, Lusaka, Zambia</p>
                         <p>
-                          📧 <a href="mailto:info@titobookings.com" className="text-primary hover:underline">info@titobookings.com</a>
+                          <a href="mailto:info@titobookings.com" className="text-primary hover:underline">info@titobookings.com</a>
                         </p>
                         <p>
-                          📞 <a href="tel:+260971756393" className="text-primary hover:underline">+260 971 756 393</a>
+                          <a href="tel:+260963296682" className="text-primary hover:underline">+260 963 296 682</a>
                         </p>
                         <p>
-                          🌐 <a href="https://tito-bookings.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://tito-bookings.com</a>
+                          <a href="https://titobookings.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://titobookings.com</a>
                         </p>
                       </div>
                     </div>

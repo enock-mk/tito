@@ -31,7 +31,7 @@ export function HeroContent({ className }: HeroContentProps) {
       </SlideUp>
 
       <HeroButtons className="mt-8" />
-      <HeroStats className="mt-8" />
+      {/*<HeroStats className="mt-8" /> */}
     </div>
   );
 }

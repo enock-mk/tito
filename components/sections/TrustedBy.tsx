@@ -28,13 +28,13 @@ export function TrustedBy() {
           </div>
         </SlideIn>
 
-        <SlideIn delay={0.4}>
+        {/*<SlideIn delay={0.4}>
           <div className="mt-8 text-center">
             <p className="text-sm text-neutral-500 dark:text-neutral-400">
               Join 120+ partners and 5000+ businesses using TiTO
             </p>
           </div>
-        </SlideIn>
+        </SlideIn> */}
       </div>
     </section>
   );

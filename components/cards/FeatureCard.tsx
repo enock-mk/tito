@@ -57,11 +57,11 @@ export function FeatureCard({ feature, className, index }: FeatureCardProps) {
       </p>
 
       {/* Stats Badge */}
-      {feature.stats && (
+      {/*{feature.stats && (
         <div className="mt-4 inline-flex items-center rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400">
           {feature.stats}
         </div>
-      )}
+      )}*/}
 
       {/* Link */}
       {feature.href && (

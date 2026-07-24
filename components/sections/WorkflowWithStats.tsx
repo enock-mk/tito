@@ -82,7 +82,7 @@ export function WorkflowWithStats() {
             </div>
 
             {/* Stats */}
-            <div className="mt-8 grid grid-cols-3 gap-4">
+            {/*<div className="mt-8 grid grid-cols-3 gap-4">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
@@ -93,7 +93,7 @@ export function WorkflowWithStats() {
                   <p className="text-xs text-neutral-500">{stat.label}</p>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* Right: Active Step Details */}

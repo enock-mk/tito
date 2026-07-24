@@ -116,11 +116,11 @@ export function SolutionCard({ solution, index = 0 }: SolutionCardProps) {
           </div>
 
           {/* Badge (Optional) */}
-          {solution.stats && (
+          {/*{solution.stats && (
             <span className="ml-3 inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
               {solution.stats}
             </span>
-          )}
+          )} */}
 
           {/* Title */}
           <h3 className="mt-4 text-xl font-bold tracking-tight group-hover:text-primary md:text-2xl">

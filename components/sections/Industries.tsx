@@ -47,7 +47,7 @@ export function Industries() {
         </StaggerContainer>
 
         {/* Category Showcase */}
-        <SlideIn delay={0.3}>
+        {/*<SlideIn delay={0.3}>
           <div className="mt-16">
             <h3 className="text-center text-2xl font-bold">
               Trusted by businesses across sectors
@@ -70,7 +70,7 @@ export function Industries() {
               ))}
             </div>
           </div>
-        </SlideIn>
+        </SlideIn> */}
 
         {/* CTA */}
         <SlideIn delay={0.5}>

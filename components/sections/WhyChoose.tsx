@@ -31,7 +31,7 @@ export function WhyChoose() {
         </SlideIn>
 
         {/* Key Selling Points */}
-        <SlideIn delay={0.2}>
+        {/*<SlideIn delay={0.2}>
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { label: 'Fast Setup', value: '5 minutes' },
@@ -51,7 +51,7 @@ export function WhyChoose() {
               </div>
             ))}
           </div>
-        </SlideIn>
+        </SlideIn> */}
 
         {/* Benefits Grid */}
         <StaggerContainer className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">

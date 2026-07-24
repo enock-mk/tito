@@ -115,7 +115,7 @@ export function Downloads() {
             </StaggerContainer>
 
             {/* Trust Indicators */}
-            <SlideIn delay={0.3}>
+            {/*<SlideIn delay={0.3}>
               <div className="flex flex-wrap items-center gap-6 text-sm text-neutral-500">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-green-500" />
@@ -130,7 +130,7 @@ export function Downloads() {
                   <span>50K+ downloads</span>
                 </div>
               </div>
-            </SlideIn>
+            </SlideIn> */}
           </div>
 
           {/* Right Column - App Cards */}

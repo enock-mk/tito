@@ -39,11 +39,11 @@ export default function MobileAppsPage() {
 
                 <div className="mt-8 flex flex-wrap gap-4">
                   <Button size="lg" className="gap-2">
-                    <Apple className="h-5 w-5" />
+                    <Image className='mr-2 h-5 w-5' src={'/icons/app-store.svg'} alt='apple' width={24} height={24}/>
                     App Store
                   </Button>
                   <Button size="lg" variant="outline" className="gap-2">
-                    <Smartphone className="h-5 w-5" />
+                    <Image className='mr-2 h-5 w-5 ' src={'/icons/google-play.svg'} alt='play-store' width={24} height={24} />
                     Google Play
                   </Button>
                 </div>

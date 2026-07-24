@@ -306,6 +306,146 @@ export const industries: Industry[] = [
       },
     ],
   },
+  // NGOs
+{
+  id: 'ngos',
+  title: 'NGOs',
+  description: 'Streamline fundraising, event management, volunteer coordination, and impact reporting for your NGO.',
+  icon: Heart,
+  image: '/images/industries/ngos.jpg',
+  gradient: 'from-rose-500 to-rose-600',
+  color: 'rose',
+  stats: '50+ NGOs',
+  href: '/industries/ngos',
+  features: ['Fundraising Campaigns', 'Event Management', 'Volunteer Scheduling', 'Donation Tracking', 'Impact Reporting', 'Supporter Management'],
+  slug: 'ngos',
+  industryCategory: 'Non-Profit',
+  heroIntro: 'NGO Operations',
+  heroText: 'Power your mission with tools for fundraising, event management, volunteer coordination, and impact reporting.',
+  problemQuestions: [
+    'Fundraising campaigns are fragmented?',
+    'Volunteer management is chaotic?',
+    'Impact reporting is time-consuming?',
+    'Donor engagement is inconsistent?',
+  ],
+  solutionText: 'TiTO provides NGOs with a unified platform for fundraising, event management, volunteer coordination, and impact reporting so you can focus on your mission.',
+  workflow: [
+    'Launch Campaign',
+    'Manage Events',
+    'Coordinate Volunteers',
+    'Track Donations',
+    'Report Impact',
+    'Engage Supporters',
+  ],
+  faqs: [
+    {
+      question: 'Can TiTO handle both fundraising and event management?',
+      answer: 'Yes. Launch fundraising campaigns and manage events from the same platform.',
+    },
+    {
+      question: 'Is volunteer scheduling supported?',
+      answer: 'Yes. Manage volunteer schedules, roles, and communications seamlessly.',
+    },
+    {
+      question: 'Can we track and report on impact?',
+      answer: 'Yes. Generate impact reports to share with donors and stakeholders.',
+    },
+  ],
+},
+
+// Universities
+{
+  id: 'universities',
+  title: 'Universities',
+  description: 'Manage campus events, facility bookings, ticketing, and student engagement with TiTO.',
+  icon: GraduationCap,
+  image: '/images/industries/universities.jpg',
+  gradient: 'from-cyan-500 to-cyan-600',
+  color: 'cyan',
+  stats: '20+ universities',
+  href: '/industries/universities',
+  features: ['Event Management', 'Facility Booking', 'Ticketing System', 'Student Engagement', 'Venue Management', 'Calendar Management'],
+  slug: 'universities',
+  industryCategory: 'Education',
+  heroIntro: 'Campus Operations',
+  heroText: 'Coordinate campus events, facility bookings, ticketing, and student engagement from one university operations hub.',
+  problemQuestions: [
+    'Campus events are hard to coordinate?',
+    'Facility bookings are manual?',
+    'Student engagement is difficult to track?',
+    'Ticketing is fragmented across departments?',
+  ],
+  solutionText: 'TiTO helps universities manage campus events, facility bookings, ticketing, and student engagement in one platform.',
+  workflow: [
+    'Create Event',
+    'Book Venue',
+    'Sell Tickets',
+    'Manage Attendance',
+    'Engage Students',
+    'Review Metrics',
+  ],
+  faqs: [
+    {
+      question: 'Can TiTO handle multiple campus venues and events?',
+      answer: 'Yes. Manage multiple venues, events, and bookings from one dashboard.',
+    },
+    {
+      question: 'Is student engagement tracking supported?',
+      answer: 'Yes. Track event attendance, participation, and engagement metrics.',
+    },
+    {
+      question: 'Can we sell tickets for campus events?',
+      answer: 'Yes. Use the integrated ticketing system for campus events and activities.',
+    },
+  ],
+},
+
+// Government
+{
+  id: 'government',
+  title: 'Government',
+  description: 'Manage public events, facility bookings, citizen engagement, and service delivery with TiTO.',
+  icon: Building2,
+  image: '/images/industries/government.jpg',
+  gradient: 'from-indigo-500 to-indigo-600',
+  color: 'indigo',
+  stats: '15+ agencies',
+  href: '/industries/government',
+  features: ['Public Event Management', 'Facility Booking', 'Citizen Engagement', 'Service Scheduling', 'Resource Allocation', 'Communication Tools'],
+  slug: 'government',
+  industryCategory: 'Government',
+  heroIntro: 'Government Operations',
+  heroText: 'Coordinate public events, facility bookings, citizen engagement, and service delivery from one government platform.',
+  problemQuestions: [
+    'Public events are hard to manage?',
+    'Facility bookings are inefficient?',
+    'Citizen engagement is inconsistent?',
+    'Service delivery tracking is manual?',
+  ],
+  solutionText: 'TiTO helps government agencies manage public events, facility bookings, citizen engagement, and service delivery.',
+  workflow: [
+    'Plan Event',
+    'Book Facility',
+    'Engage Citizens',
+    'Deliver Service',
+    'Track Impact',
+    'Review Metrics',
+  ],
+  faqs: [
+    {
+      question: 'Can TiTO manage public events and facility bookings?',
+      answer: 'Yes. Coordinate public events and manage facility bookings from one platform.',
+    },
+    {
+      question: 'Is citizen engagement tracking supported?',
+      answer: 'Yes. Track engagement, participation, and service delivery metrics.',
+    },
+    {
+      question: 'Can we accept payments for services?',
+      answer: 'Yes. Use the integrated payment system for service fees and event tickets.',
+    },
+  ],
+},
 ];
 
 export const industryCategories = [

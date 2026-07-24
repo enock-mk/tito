@@ -139,7 +139,7 @@ export default function AboutPage() {
       />
 
       {/* Stats Section */}
-      <section className="border-b py-12 dark:border-neutral-800">
+      {/*<section className="border-b py-12 dark:border-neutral-800">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             {stats.map((stat, index) => {
@@ -156,7 +156,7 @@ export default function AboutPage() {
             })}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Mission & Vision Section */}
       <section className="py-16 md:py-24">
@@ -338,7 +338,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <CTASection variant="default" />
     </>
   );
 }
