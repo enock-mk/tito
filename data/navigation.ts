@@ -48,7 +48,7 @@ export const mainNavItems: NavItem[] = [
       { label: 'Help Centre', href: '/help' },
       { label: 'Case Studies', href: '/case-studies' },
       { label: 'Release Notes', href: '/release-notes' },
-      { label: 'Downloads', href: '/#download' },
+      { label: 'Downloads', href: '/download' },
     ],
   },
   {
