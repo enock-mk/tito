@@ -1,26 +1,14 @@
 import { 
-  Download, 
   Smartphone, 
   Monitor, 
-  Tablet, 
-  QrCode,
   Apple,
   PlayCircle,
-  FileArchive,
-  ExternalLink,
-  CheckCircle2,
-  Sparkles,
   Store,
-  Globe,
   Bus,
   Hotel,
-  Calendar,
   Users,
-  Truck,
-  Building2,
   User,
   Briefcase,
-  LayoutDashboard,
   LucideIcon
 } from 'lucide-react';
 import { PlatformIcon } from '@/components/shared/PlatformIcon';
@@ -82,7 +70,6 @@ export const downloadApps: DownloadApp[] = [
     downloads: [
       { name: 'iOS App', url: '#', icon: Apple, size: '52 MB' },
       { name: 'Android APK', url: '#', icon: Smartphone, size: '38 MB' },
-      { name: 'Desktop App (Windows)', url: '#', icon: Monitor, size: '68 MB' },
     ],
     features: ['Event Management', 'Partner Dashboard', 'Analytics', 'Revenue Tracking'],
   },
@@ -99,10 +86,7 @@ export const downloadApps: DownloadApp[] = [
       { name: 'Google Play', url: '#', icon: PlayCircle },
     ],
     downloads: [
-      { name: 'iOS App', url: '#', icon: Apple, size: '48 MB' },
-      { name: 'Android APK', url: '#', icon: Smartphone, size: '35 MB' },
       { name: 'Desktop App (Windows)', url: '#', icon: Monitor, size: '72 MB' },
-      { name: 'Desktop App (macOS)', url: '#', icon: Monitor, size: '78 MB' },
     ],
     features: ['Fleet Management', 'Trip Planning', 'Revenue Analytics', 'Driver Scheduling'],
   },
@@ -155,10 +139,7 @@ export const downloadApps: DownloadApp[] = [
       { name: 'Google Play', url: '#', icon: PlayCircle },
     ],
     downloads: [
-      { name: 'iOS App', url: '#', icon: Apple, size: '55 MB' },
-      { name: 'Android APK', url: '#', icon: Smartphone, size: '42 MB' },
       { name: 'Desktop App (Windows)', url: '#', icon: Monitor, size: '85 MB' },
-      { name: 'Desktop App (macOS)', url: '#', icon: Monitor, size: '92 MB' },
     ],
     features: ['Room Management', 'Guest Profiles', 'Menu Management', 'Revenue Analytics'],
   },

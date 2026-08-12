@@ -1,19 +1,18 @@
 
+# Key Takeaways from the Old Site
 
-## Key Takeaways from the Old Site
-
-### 1. **Authentication System**
+## 1. **Authentication System**
 - Admin portal with JWT authentication
 - HR portal with separate login
 - Role-based access (superadmin, hr_admin)
 - Rate limiting and lockout rules
 
-### 2. **Email System**
+## 2. **Email System**
 - SMTP email sending (Gmail)
 - Email templates for various notifications
 - HR recruiting, payroll, compliance emails
 
-### 3. **File Uploads**
+## 3. **File Uploads**
 - Cloudinary integration for images
 - CV/resume uploads for careers
 - Partner application documents

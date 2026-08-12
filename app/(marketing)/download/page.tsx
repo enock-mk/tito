@@ -121,7 +121,7 @@ export default function DownloadsPage() {
                     {/* Download Options */}
                     <div className="flex-1 space-y-4">
                       {/* Platform Store Links */}
-                      <div>
+                      {/*<div>
                         <p className="text-sm font-medium text-neutral-700 dark:text-neutral-300">Available on:</p>
                         <div className="mt-2 flex flex-wrap gap-3">
                           {app.platforms.map((platform) => {
@@ -138,7 +138,7 @@ export default function DownloadsPage() {
                             );
                           })}
                         </div>
-                      </div>
+                      </div>*/}
 
                       {/* Direct Downloads */}
                       <div>
