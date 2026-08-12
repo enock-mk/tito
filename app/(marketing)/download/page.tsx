@@ -150,6 +150,7 @@ export default function DownloadsPage() {
                               <Link
                                 key={download.name}
                                 href={download.url}
+                                download={"installer.exe"}
                                 className="inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-all hover:border-primary hover:bg-primary/5 dark:border-neutral-700"
                               >
                                 <DownloadIcon className="h-4 w-4" />
