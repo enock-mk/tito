@@ -6,3 +6,4 @@ prisma/start-contract.json linguist-generated
 prisma/start-contract.d.ts linguist-generated
 prisma/ops.json linguist-generated
 prisma/migration.json linguist-generated
+public/downloads/*.exe filter=lfs diff=lfs merge=lfs -text
