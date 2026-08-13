@@ -86,7 +86,7 @@ export const downloadApps: DownloadApp[] = [
       { name: 'Google Play', url: '#', icon: PlayCircle },
     ],
     downloads: [
-      { name: 'Desktop App (Windows)', url: '/downloads/Operator Panel 8 Setup 1.0.0.exe', icon: Monitor, size: '72 MB' },
+      { name: 'Desktop App (Windows)', url: '/downloads/Operator Panel 8 Setup 1.0.0.exe', icon: Monitor, size: '285 MB' },
     ],
     features: ['Fleet Management', 'Trip Planning', 'Revenue Analytics', 'Driver Scheduling'],
   },
@@ -139,7 +139,7 @@ export const downloadApps: DownloadApp[] = [
       { name: 'Google Play', url: '#', icon: PlayCircle },
     ],
     downloads: [
-      { name: 'Desktop App (Windows)', url: '/downloads/TitoHotel Partner Portal Setup 1.0.0.exe', icon: Monitor, size: '85 MB' },
+      { name: 'Desktop App (Windows)', url: '/downloads/TitoHotel Partner Portal Setup 1.0.0.exe', icon: Monitor, size: '140 MB' },
     ],
     features: ['Room Management', 'Guest Profiles', 'Menu Management', 'Revenue Analytics'],
   },
