@@ -37,13 +37,13 @@ export function Navbar() {
           <DesktopNav />
 
           <div className="flex items-center gap-2 lg:hidden">
-            <SearchDialog />
+            {/* <SearchDialog /> */}
             <ThemeToggle />
             <MobileNav />
           </div>
 
           <div className="hidden items-center gap-2 lg:flex">
-            <SearchDialog />
+            {/* <SearchDialog /> */}
             <ThemeToggle />
           </div>
         </div>

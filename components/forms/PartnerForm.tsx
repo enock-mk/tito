@@ -1,7 +1,7 @@
 // components/forms/PartnerForm.tsx
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { partnerFormSchema, PartnerFormValues } from '@/lib/forms';
@@ -27,12 +27,14 @@ export function PartnerForm({ className, onSuccess }: PartnerFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const successTimeoutRef = useRef<number | null>(null);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-    watch,
+    
   } = useForm<PartnerFormValues>({
     resolver: zodResolver(partnerFormSchema),
     defaultValues: {
@@ -66,14 +68,32 @@ export function PartnerForm({ className, onSuccess }: PartnerFormProps) {
         setIsSubmitted(true);
         reset();
         onSuccess?.();
-        
-        // Reset success state after 5 seconds
-        setTimeout(() => {
+        // Reset success state after 5 seconds (store timer so we can clear on unmount)
+        successTimeoutRef.current = window.setTimeout(() => {
           setIsSubmitted(false);
         }, 5000);
       } else {
-        const errorData = await response.json();
-        setError(errorData.error || 'Something went wrong. Please try again.');
+        let parsed: unknown = null;
+        try {
+          parsed = await response.json();
+        } catch {
+          // ignore parse errors
+        }
+
+        let errMsg = 'Something went wrong. Please try again.';
+        if (parsed && typeof parsed === 'object') {
+          const p = parsed as Record<string, unknown>;
+          if (typeof p.error === 'string') {
+            errMsg = p.error;
+          } else if (Array.isArray(p.errors) && p.errors.length > 0) {
+            const first = p.errors[0] as Record<string, unknown> | undefined;
+            if (first && typeof first.message === 'string') {
+              errMsg = first.message as string;
+            }
+          }
+        }
+
+        setError(errMsg);
       }
     } catch (err) {
       setError('Network error. Please check your connection and try again.');
@@ -82,6 +102,14 @@ export function PartnerForm({ className, onSuccess }: PartnerFormProps) {
       setIsSubmitting(false);
     }
   };
+
+  useEffect(() => {
+    return () => {
+      if (successTimeoutRef.current) {
+        clearTimeout(successTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const industries = [
     { value: 'hotel', label: 'Hotel' },
@@ -123,7 +151,7 @@ export function PartnerForm({ className, onSuccess }: PartnerFormProps) {
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={(e) => void handleSubmit(onSubmit)(e)}
       className={cn('space-y-6', className)}
     >
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -135,9 +163,11 @@ export function PartnerForm({ className, onSuccess }: PartnerFormProps) {
           className="sm:col-span-2"
         >
           <Input
-            {...register('fullName')}
-            placeholder="Enter your full name"
-            disabled={isSubmitting}
+              id="fullName"
+              {...register('fullName')}
+              placeholder="Enter your full name"
+              disabled={isSubmitting}
+              aria-invalid={!!errors.fullName?.message}
           />
         </FormField>
 
@@ -148,10 +178,12 @@ export function PartnerForm({ className, onSuccess }: PartnerFormProps) {
           required
         >
           <Input
+            id="email"
             {...register('email')}
             type="email"
             placeholder="Enter your email address"
             disabled={isSubmitting}
+            aria-invalid={!!errors.email?.message}
           />
         </FormField>
 
@@ -162,10 +194,12 @@ export function PartnerForm({ className, onSuccess }: PartnerFormProps) {
           required
         >
           <Input
+            id="phone"
             {...register('phone')}
             type="tel"
             placeholder="Enter your phone number"
             disabled={isSubmitting}
+            aria-invalid={!!errors.phone?.message}
           />
         </FormField>
 
@@ -177,9 +211,11 @@ export function PartnerForm({ className, onSuccess }: PartnerFormProps) {
           className="sm:col-span-2"
         >
           <Input
+            id="companyName"
             {...register('companyName')}
             placeholder="Enter your company name"
             disabled={isSubmitting}
+            aria-invalid={!!errors.companyName?.message}
           />
         </FormField>
 
@@ -190,9 +226,11 @@ export function PartnerForm({ className, onSuccess }: PartnerFormProps) {
           required
         >
           <select
+            id="industry"
             {...register('industry')}
             className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
             disabled={isSubmitting}
+            aria-invalid={!!errors.industry?.message}
           >
             {industries.map((industry) => (
               <option key={industry.value} value={industry.value}>
@@ -209,9 +247,11 @@ export function PartnerForm({ className, onSuccess }: PartnerFormProps) {
           required
         >
           <select
+            id="businessSize"
             {...register('businessSize')}
             className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
             disabled={isSubmitting}
+            aria-invalid={!!errors.businessSize?.message}
           >
             {businessSizes.map((size) => (
               <option key={size.value} value={size.value}>
@@ -228,10 +268,12 @@ export function PartnerForm({ className, onSuccess }: PartnerFormProps) {
           className="sm:col-span-2"
         >
           <Input
+            id="website"
             {...register('website')}
             type="url"
             placeholder="https://your-company.com"
             disabled={isSubmitting}
+            aria-invalid={!!errors.website?.message}
           />
         </FormField>
 
@@ -243,10 +285,12 @@ export function PartnerForm({ className, onSuccess }: PartnerFormProps) {
           className="sm:col-span-2"
         >
           <Textarea
+            id="message"
             {...register('message')}
             placeholder="Tell us about your business and why you want to partner with TiTO..."
             rows={4}
             disabled={isSubmitting}
+            aria-invalid={!!errors.message?.message}
           />
         </FormField>
 
@@ -257,8 +301,10 @@ export function PartnerForm({ className, onSuccess }: PartnerFormProps) {
         >
           <div className="flex items-center space-x-2">
             <Checkbox
+              id="agreeToTerms"
               {...register('agreeToTerms')}
               disabled={isSubmitting}
+              aria-invalid={!!errors.agreeToTerms?.message}
             />
             <label className="text-sm">
               I agree to the{' '}
