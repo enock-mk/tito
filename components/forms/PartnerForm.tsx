@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { partnerFormSchema, PartnerFormValues } from '@/lib/forms';
 import { Button } from '@/components/ui/button';
@@ -32,9 +32,9 @@ export function PartnerForm({ className, onSuccess }: PartnerFormProps) {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
     reset,
-    
   } = useForm<PartnerFormValues>({
     resolver: zodResolver(partnerFormSchema),
     defaultValues: {
@@ -300,13 +300,21 @@ export function PartnerForm({ className, onSuccess }: PartnerFormProps) {
           className="sm:col-span-2"
         >
           <div className="flex items-center space-x-2">
-            <Checkbox
-              id="agreeToTerms"
-              {...register('agreeToTerms')}
-              disabled={isSubmitting}
-              aria-invalid={!!errors.agreeToTerms?.message}
+            <Controller
+              name="agreeToTerms"
+              control={control}
+              render={({ field }) => (
+                <Checkbox
+                  id="agreeToTerms"
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                  onBlur={field.onBlur}
+                  disabled={isSubmitting}
+                  aria-invalid={!!errors.agreeToTerms?.message}
+                />
+              )}
             />
-            <label className="text-sm">
+            <label htmlFor="agreeToTerms" className="text-sm">
               I agree to the{' '}
               <a href="/legal/terms" className="text-primary hover:underline">
                 Terms of Service
